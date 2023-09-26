@@ -15,15 +15,10 @@ router.post("/", puppiesCtrl.create);
 router.get("/:id", puppiesCtrl.show);
 
 // PEOPLE DELETE ROUTE
-router.delete("/:id", (req, res) => {
-	res.status(200).json({message: "people delete route: " + req.params.id })
-});
+router.delete("/:id", puppiesCtrl.delete);
 
 // PEOPLE UPDATE ROUTE
-router.put("/:id", (req, res) => {
-	console.log(req.body)
-	res.status(200).json({message: "people update route: " + req.params.id })
-});
+router.put("/:id", puppiesCtrl.update);
 
 
 module.exports = router
