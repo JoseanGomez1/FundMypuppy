@@ -14,12 +14,19 @@ const { PORT } = process.env;
 
 // import express
 const express = require("express");
+// import puppies router
+const puppiesRouter = require('./routes/puppies')
 
 // create application object
 const app = express();
 
 ///////////////////////////////
 // ROUTES
+
+// all requests for endpoints that begin with '/people'
+app.use('/puppies', puppiesRouter)
+
+
 ////////////////////////////////
 // create a test route
 app.get("/", (req, res) => {
