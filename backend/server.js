@@ -1,40 +1,39 @@
-///////////////////////////////
 // DEPENDENCIES
-////////////////////////////////
+const cors = require('cors');
+const morgan = require('morgan');
+const express = require('express');
+const dotenv = require('dotenv');
 
-// initialize .env variables
-require("dotenv").config();
+// Initialize .env variables
+dotenv.config();
 
-// start the mongoose db connection
-require('./config/database')
+// Start the mongoose db connection
+require('./config/database');
 
-
-// pull PORT from .env, give default value of 4000 and establish DB Connection
+// Pull PORT from .env, give a default value of 4000
 const { PORT } = process.env;
 
-// import express
-const express = require("express");
-// import puppies router
-const puppiesRouter = require('./routes/puppies')
+// Import puppies router
+const puppiesRouter = require('./routes/puppies');
 
-// create application object
+// Create the Express application
 const app = express();
 
-///////////////////////////////
+// MIDDLEWARE
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // Parse JSON bodies
+app.use(cors()); // Enable CORS for all origins
+app.use(morgan('dev')); // Logging for development
+
 // ROUTES
+app.use('/puppies', puppiesRouter);
 
-// all requests for endpoints that begin with '/people'
-app.use('/puppies', puppiesRouter)
-
-
-////////////////////////////////
-// create a test route
-app.get("/", (req, res) => {
-    res.send("hello world");
+// Test route
+app.get('/', (req, res) => {
+  res.send('Hello, world!');
 });
 
-///////////////////////////////
 // LISTENER
-////////////////////////////////
-app.listen(PORT, () => console.log(`listening on PORT ${PORT}`));
-
+app.listen(PORT, () => {
+  console.log(`Listening on PORT ${PORT}`);
+});
