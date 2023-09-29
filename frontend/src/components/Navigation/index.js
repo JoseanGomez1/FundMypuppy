@@ -1,5 +1,3 @@
 import MainNav from "./MainNav";
 
-export {
-    MainNav
-}
+export {MainNav}

@@ -1,3 +1,5 @@
-export default function Puppies(props){
-    return(<h1>Puppies</h1>)
-}
+const Puppies = (props) => {
+    return <h1>Component Name:Comp</h1>;
+  };
+  
+  export default Puppies;

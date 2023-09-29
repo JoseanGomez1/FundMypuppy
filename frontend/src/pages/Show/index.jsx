@@ -1,3 +1,5 @@
-export default function Show(props){
-    return(<h1>Puppies</h1>)
-}
+const show = (props) => {
+    return <h1>Component Name:Comp</h1>;
+  };
+  
+  export default show;

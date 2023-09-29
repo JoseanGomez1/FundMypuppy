@@ -41,22 +41,19 @@ const router = express.Router();
 
 const adoptionCtrl = require('../controllers/Adoption-controllers'); // Update the controller import path
 
-// ADOPTION CREATE ROUTE
+
 router.post('/', adoptionCtrl.createAdoption);
 
-// ADOPTION INDEX ROUTE
+
 router.get('/', adoptionCtrl.getAllAdoptions);
 
-// ADOPTION SHOW ROUTE
-// This route is responsible for displaying details of a specific adoption.
+
 router.get('/:id', adoptionCtrl.getAdoptionById);
 
-// ADOPTION DELETE ROUTE
-// This route is responsible for deleting an adoption by its ID.
+
 router.delete('/:id', adoptionCtrl.deleteAdoptionById);
 
-// ADOPTION UPDATE ROUTE
-// This route is responsible for updating an adoption by its ID.
+
 router.put('/:id', adoptionCtrl.updateAdoptionById);
 
 module.exports = router;
