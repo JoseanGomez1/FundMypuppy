@@ -6,11 +6,11 @@ const Schema = mongoose.Schema
 ///////////////////////////////
 // MODELS
 ////////////////////////////////
-const PupsSchema = new Schema({
+const donationSchema = new Schema({
   name: String,
-  image: String,
-  title: String,
-},{timestamps: true});
+  donationAmount: mongoose.Decimal128,
+  description: { type: String, required: true },
+})
 
-module.exports = mongoose.model("Pups", PupsSchema);
+module.exports = mongoose.model("donation", donationSchema);
 

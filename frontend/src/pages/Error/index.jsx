@@ -5,4 +5,4 @@ export default function Error({error}){
             <p>{error ? error.message: null }</p>
         </section>
     )
-}
+}   

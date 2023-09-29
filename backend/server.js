@@ -13,8 +13,8 @@ require('./config/database');
 // Pull PORT from .env, give a default value of 4000
 const { PORT } = process.env;
 
-// Import puppies router
-const puppiesRouter = require('./routes/puppies');
+// Import adoption router (update the import path)
+const adoptionRouter = require('./routes/adoption'); // Update the import path
 
 // Create the Express application
 const app = express();
@@ -25,8 +25,8 @@ app.use(express.json()); // Parse JSON bodies
 app.use(cors()); // Enable CORS for all origins
 app.use(morgan('dev')); // Logging for development
 
-// ROUTES
-app.use('/puppies', puppiesRouter);
+// ROUTES (update the route prefix)
+app.use('/adoptions', adoptionRouter); // Update the route prefix
 
 // Test route
 app.get('/', (req, res) => {
