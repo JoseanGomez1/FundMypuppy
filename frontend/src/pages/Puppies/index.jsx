@@ -9,6 +9,7 @@ function Puppies(props) {
 
   const getPuppies = async () => {
     try {
+      console.log(URL)
       const response = await fetch(BASE_URL);
       const allPuppies = await response.json();
       setPuppies(allPuppies);
